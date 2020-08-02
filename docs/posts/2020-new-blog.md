@@ -7,7 +7,7 @@ categories:
     - Daily
 ---
 
-![](https://pico.oss-cn-hangzhou.aliyuncs.com/uPic/rHM5uk.jpg)
+![](https://pico.oss-cn-hangzhou.aliyuncs.com/uPic/qSQw3w.jpg)
 
 ### 可能是最近太闲了 😂
 
