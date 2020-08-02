@@ -1,0 +1,26 @@
+{
+    "name": "hyancat-blog",
+    "repository": "https://github.com/HyanCat/hyancat-blog",
+    "license": "MIT",
+    "version": "1.0.1",
+    "description": "Blog of HyanCat",
+    "scripts": {
+        "dev": "vuepress dev docs",
+        "build": "vuepress build docs --no-cache"
+    },
+    "devDependencies": {
+        "@vuepress/plugin-blog": "^1.5.1",
+        "@vuepress/plugin-google-analytics": "^1.2.0",
+        "@vuepress/plugin-last-updated": "^1.2.0",
+        "@vuepress/plugin-medium-zoom": "^1.2.0"
+    },
+    "dependencies": {
+        "remove-markdown": "^0.3.0",
+        "vuepress": "^1.2.0",
+        "vuepress-plugin-feed": "^0.1.8",
+        "vuepress-theme-reco": "^1.5.5",
+        "vuepress-theme-resume": "^1.0.1",
+        "vuepress-theme-seeker": "^1.0.9",
+        "vuepress-theme-vdoing": "^1.4.0"
+    }
+}
