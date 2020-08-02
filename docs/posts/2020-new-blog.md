@@ -7,6 +7,8 @@ categories:
     - Daily
 ---
 
+![](https://pico.oss-cn-hangzhou.aliyuncs.com/uPic/rHM5uk.jpg)
+
 ### 可能是最近太闲了 😂
 
 自从 18 年（为生活计）进入阿里，第一年融入，第二年累死累活搞“大事”。个人学习基本荒废，也没时间写东西。
