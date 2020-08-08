@@ -20,7 +20,9 @@ certbot 地址：https://github.com/certbot/certbot
 
 1. 对于 Mac 环境，直接 homebrew 安装 certbot 即可。
 
+    ```
     brew install certbot --verbose
+    ```
 
 2. 准备目录。
     - 新建个工作目录，进入到当前目录
