@@ -25,8 +25,8 @@ certbot 地址：https://github.com/certbot/certbot
     ```
 
 2. 准备目录。
-    - 新建个工作目录，进入到当前目录
-    - 新建 config, logs,work 文件夹
+    - 新建个工作目录，进入到当前目录；
+    - 新建 `config`, `logs`, `work` 文件夹。
 
 ### 制作证书
 
