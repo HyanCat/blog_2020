@@ -57,6 +57,9 @@ module.exports = {
             logo: 'https://o.ruogoo.cn/image/82d617748d6c1373ec29a4565b7ba102.png',
             link: 'https://ruogoo.cn'
         }, ],
+        // 备案
+        record: '京ICP备14006825号-1',
+        recordLink: 'https://beian.miit.gov.cn/',
         startYear: '2013',
         search: true,
         searchMaxSuggestions: 10,
