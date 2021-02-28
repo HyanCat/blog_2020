@@ -29,5 +29,5 @@ jobs:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         TARGET_REPO: HyanCat/hyancat.github.io
         TARGET_BRANCH: master
-        BUILD_SCRIPT: yarn && yarn build
+        BUILD_SCRIPT: npm i && npm run build
         BUILD_DIR: docs/.vuepress/dist/
