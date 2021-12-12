@@ -1,7 +1,7 @@
 // config.js
 module.exports = {
-    title: "流光不加少",
-    description: 'A simple and beautiful vuepress blog theme.',
+    title: '流光不加少',
+    description: '『懒拭宝剑锋，流光不加少』',
     // 最后更新时间
     lastUpdated: 'Last Updated',
     // 作者
@@ -20,49 +20,44 @@ module.exports = {
             },
         },
         lastUpdated: '最近更新',
-        // valine: {
-        //     appId: '',
-        //     appKey: '',
-        // },
-        nav: [{
+        nav: [
+            {
                 text: 'Home',
                 link: '/',
-                icon: 'reco-home'
-            },
-            {
-                text: 'Notes',
-                link: '/note/',
-                icon: 'reco-document'
+                icon: 'reco-home',
             },
             {
                 text: 'TimeLine',
                 link: '/timeline/',
-                icon: 'reco-date'
+                icon: 'reco-date',
             },
             {
                 text: 'About',
                 link: '/about/',
-                icon: 'reco-account'
+                icon: 'reco-account',
             },
             {
                 text: 'GitHub',
                 link: 'https://github.com/HyanCat',
-                icon: 'reco-github'
-            }
+                icon: 'reco-github',
+            },
         ],
-        friendLink: [{
-            title: '若古社区',
-            desc: '最优秀的古风文化社区',
-            email: 'zhangmen@ruogoo.cn',
-            logo: 'https://o.ruogoo.cn/image/82d617748d6c1373ec29a4565b7ba102.png',
-            link: 'https://ruogoo.cn'
-        }, ],
+        friendLink: [
+            {
+                title: '若古社区',
+                desc: '最优秀的古风文化社区',
+                email: 'zhangmen@ruogoo.cn',
+                logo:
+                    'https://o.ruogoo.cn/image/82d617748d6c1373ec29a4565b7ba102.png',
+                link: 'https://ruogoo.cn',
+            },
+        ],
         // 备案
         record: '京ICP备14006825号-1',
         recordLink: 'https://beian.miit.gov.cn/',
         startYear: '2013',
         search: true,
         searchMaxSuggestions: 10,
-        noFoundPageByTencent: false
+        noFoundPageByTencent: false,
     },
 }

@@ -2,7 +2,7 @@
 title: 常用命令记录
 date: 2021-12-10 10:56:00
 tags:
-    - blog
+    - note
 categories:
     - Note
 ---

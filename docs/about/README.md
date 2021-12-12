@@ -1,5 +1,6 @@
 ---
 layout: About
+publish: false
 ---
 
 ### 好吧，还是写一下关于我吧。
