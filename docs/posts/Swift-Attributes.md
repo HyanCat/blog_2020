@@ -9,11 +9,11 @@ categories:
 
 ## @frozen
 
-在 Swift 中，`@frozen` 是一个属性(attribute)，它用于修饰枚举(enum)和结构体(struct)。自 Swift 5 开始，@frozen 属性被引入，目的是为了让库的作者可以明确表达他们的类型是否会在未来的版本中添加新的成员，而不破坏二进制兼容性(Binary Compatibility)。
+在 Swift 中，`@frozen` 是一个属性(attribute)，它用于修饰枚举(enum)和结构体(struct)。自 Swift 5 开始，`@frozen` 属性被引入，目的是为了让库的作者可以明确表达他们的类型是否会在未来的版本中添加新的成员，而不破坏二进制兼容性(Binary Compatibility)。
 
 当一个枚举或结构体被标记为 `@frozen` 时，这意味着这个类型的内存布局(memory layout)是固定的，并且在未来的版本中，该类型不会添加新的成员。这允许编译器做出更多优化，因为它可以确信该类型的大小和结构在编译时是已知的，并且在未来也不会改变。
 
-对于枚举来说，@frozen 的使用非常重要，因为它影响了 switch 语句的编译方式。如果一个枚举是@frozen 的，编译器会要求 switch 语句覆盖所有的枚举情况(case)，因为它知道不会有新的情况被添加。如果枚举不是@frozen 的，编译器则会要求 switch 语句包含一个默认情况(default case)，以处理未来可能添加的新情况。
+对于枚举来说，`@frozen` 的使用非常重要，因为它影响了 switch 语句的编译方式。如果一个枚举是`@frozen` 的，编译器会要求 switch 语句覆盖所有的枚举情况(case)，因为它知道不会有新的情况被添加。如果枚举不是`@frozen` 的，编译器则会要求 switch 语句包含一个默认情况(default case)，以处理未来可能添加的新情况。
 
 在 Swift 的标准库中，大多数公开的枚举和结构体都是`@frozen`的，这是为了确保它们在未来的 Swift 版本中保持向后兼容性。
 
@@ -30,7 +30,7 @@ categories:
 
 这里的 Direction 枚举被标记为`@frozen`，这表示它的成员列表在未来不会改变，因此编译器可以安全地假设当它生成 switch 语句的代码时，不需要包含用于处理未来可能添加的新成员的默认情况。
 
-需要注意的是，`@frozen` 属性只能应用于那些你希望保持稳定 ABI(Application Binary Interface)的 public 或者 open 类型。对于内部使用的类型，或者没有公开的库类型，通常不需要使用@frozen，因为这些类型的更改不会影响到外部的二进制兼容性。
+需要注意的是，`@frozen` 属性只能应用于那些你希望保持稳定 ABI(Application Binary Interface)的 public 或者 open 类型。对于内部使用的类型，或者没有公开的库类型，通常不需要使用`@frozen`，因为这些类型的更改不会影响到外部的二进制兼容性。
 
 ## 内联
 
@@ -60,9 +60,9 @@ public struct MyStruct {
 
 ### @usableFromInline
 
-@usableFromInline 是 Swift 中的一个属性，用于修饰属性、函数、初始化器和下标等声明。这个属性的作用是允许这些被修饰的元素在其定义模块的内部是可见的，并能够被标记为@inlinable 的代码使用，同时在模块外部它们仍然是私有的。换句话说，@usableFromInline 提供了一种方式，在不将 API 公开为公共 API 的同时，让它能够被其他模块内联使用。
+`@usableFromInline` 是 Swift 中的一个属性，用于修饰属性、函数、初始化器和下标等声明。这个属性的作用是允许这些被修饰的元素在其定义模块的内部是可见的，并能够被标记为`@inlinable` 的代码使用，同时在模块外部它们仍然是私有的。换句话说，`@usableFromInline` 提供了一种方式，在不将 API 公开为公共 API 的同时，让它能够被其他模块内联使用。
 
-@usableFromInline 属性通常与@inlinable 一起使用，用于实现对某些函数或方法内部实现的内联，同时保持它们不被外部模块直接访问。这在你想优化性能而又不想泄露内部实现细节时非常有用。
+`@usableFromInline` 属性通常与`@inlinable` 一起使用，用于实现对某些函数或方法内部实现的内联，同时保持它们不被外部模块直接访问。这在你想优化性能而又不想泄露内部实现细节时非常有用。
 
 举个例子，你可能有一个内部使用的函数，这个函数是性能关键的，并且你想让它能够被其他模块内联，但不想让它成为你公共 API 的一部分：
 
@@ -85,15 +85,15 @@ public func publicFunctionUsingInternalMethod() -> Int {
 }
 ```
 
-在上面的例子中，criticalInternalMethod 函数被标记为@usableFromInline，这意味着尽管它是内部的(internal)，它仍然可以被同一个模块中的@inlinable 代码内联调用，比如 publicFunctionUsingInternalMethod 函数。重要的是，criticalInternalMethod 函数对模块外部依然是不可见的，这有助于隐藏实现细节并保持二进制兼容性。
+在上面的例子中，criticalInternalMethod 函数被标记为`@usableFromInline`，这意味着尽管它是内部的(internal)，它仍然可以被同一个模块中的`@inlinable` 代码内联调用，比如 publicFunctionUsingInternalMethod 函数。重要的是，criticalInternalMethod 函数对模块外部依然是不可见的，这有助于隐藏实现细节并保持二进制兼容性。
 
-使用@usableFromInline 时需要小心，因为一旦你使用了这个属性，你就在承诺该内部 API 的稳定性，因为它可以被模块内部的@inlinable 代码使用，并可能会影响到模块的二进制接口（ABI）。
+使用`@usableFromInline` 时需要小心，因为一旦你使用了这个属性，你就在承诺该内部 API 的稳定性，因为它可以被模块内部的`@inlinable` 代码使用，并可能会影响到模块的二进制接口（ABI）。
 
-### @inline、@inline(never)、@inline(\_\_always)
+### @inline、@inline(never)、@inline(__always)
 
-在 Swift 中，@inline 属性用于控制编译器的内联行为，即是否将函数的实现在编译时插入到每个调用点。这个属性可以带有不同的参数，表明编译器应该如何处理内联。Swift 提供了两种主要的形式：@inline(never)和@inline(\_\_always)。
+在 Swift 中，`@inline` 属性用于控制编译器的内联行为，即是否将函数的实现在编译时插入到每个调用点。这个属性可以带有不同的参数，表明编译器应该如何处理内联。Swift 提供了两种主要的形式：`@inline(never)` 和 `@inline(__always)`。
 
-@inline(never)：这个属性表明编译器不应该内联标记的函数，无论它被调用的上下文是什么。即使编译器认为内联能够带来性能提升，也应遵守这个属性指示不进行内联。这可以用在你不希望由于内联而失去函数调用开销的情况，或者当你认为内联可能导致代码膨胀时。
+`@inline(never)`：这个属性表明编译器不应该内联标记的函数，无论它被调用的上下文是什么。即使编译器认为内联能够带来性能提升，也应遵守这个属性指示不进行内联。这可以用在你不希望由于内联而失去函数调用开销的情况，或者当你认为内联可能导致代码膨胀时。
 
 ```Swift
 @inline(never)
@@ -102,7 +102,7 @@ func myNonInlinableFunction() {
 }
 ```
 
-@inline(\_\_always)：与@inline(never)相反，这个属性指示编译器应该尽可能总是内联这个函数，不管它的调用上下文。这可以用于那些非常小、经常被调用且对性能至关重要的函数，当你希望避免函数调用的额外开销时。
+`@inline(__always)`：与`@inline(never)`相反，这个属性指示编译器应该尽可能总是内联这个函数，不管它的调用上下文。这可以用于那些非常小、经常被调用且对性能至关重要的函数，当你希望避免函数调用的额外开销时。
 
 ```Swift
 @inline(__always)
@@ -111,6 +111,7 @@ func myAlwaysInlinableFunction() {
 }
 ```
 
-需要注意的是，@inline(never)和@inline(**always)都只是编译器的指示，而不是强制的命令。编译器在某些情况下可能会忽略这些指示，例如，如果函数体非常大，那么即使使用了@inline(**always)，编译器也可能决定不进行内联以避免代码膨胀。或者，如果函数是递归的，即使@inline(never)也可能不会被遵守，因为内联递归函数可能会导致无限内联循环。
+需要注意的是，`@inline(never)` 和 `@inline(__always)` 都只是编译器的指示，而不是强制的命令。编译器在某些情况下可能会忽略这些指示，例如，如果函数体非常大，那么即使使用了 `@inline(__always)`，编译器也可能决定不进行内联以避免代码膨胀。或者，如果函数是递归的，即使 `@inline(never)` 也可能不会被遵守，因为内联递归函数可能会导致无限内联循环。
 
 总体来说，这些内联相关的属性应该谨慎使用，因为它们对编译器的优化有很强的指示作用。在大多数情况下，最好的做法是让编译器根据它的优化策略来自动决定是否内联函数。只有当你对你的代码和性能有深入了解，并且通过性能分析确认这些改变确实带来了好处时，才使用这些属性。
+
