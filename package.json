@@ -22,5 +22,8 @@
         "vuepress-theme-resume": "^1.0.1",
         "vuepress-theme-seeker": "^1.0.9",
         "vuepress-theme-vdoing": "^1.4.0"
+    },
+    "overrides": {
+        "fsevents": "^2.3.2"
     }
 }
