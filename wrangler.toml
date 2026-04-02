@@ -1,5 +1,0 @@
-name = "blog2020"
-compatibility_date = "2026-04-02"
-
-[assets]
-directory = "./docs/.vuepress/dist"
